@@ -20,15 +20,13 @@ public static int [] insertNumber(int[] array, int index, int number)
 }
 public static int [] removeNumber (int[] array, int index)
 {
-	int [] res = new int[array.length-1];
-	if (index == 0)
-	{System.arraycopy(array, index+1 , res, 0, res.length);}
-	else if  (index == array.length-1)
-	{System.arraycopy(array, 0 , res, 0, res.length);}
-	else
-	{System.arraycopy(array, 0, res, 0, index);
-	System.arraycopy(array, index+1, res, index, res.length - index);}	
-	return res;	
+	if (index >= 0 && index <= array.length-1)
+	{int [] res = new int[array.length-1];
+	System.arraycopy(array, 0, res, 0, index);
+	System.arraycopy(array, index+1, res, index, res.length - index);
+	return res;}
+	int [] fail = {};
+	return fail;
 }
 
 public static int [] insertNumberSorted (int[] ar, int number)

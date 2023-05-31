@@ -82,6 +82,9 @@ void removeNumberTest()
 	index = src.length-1;
 	int [] expected3 = {1, 2, 3, 4, 5, 6};
 	assertArrayEquals(expected3,ArraysInt.removeNumber(src, index));
+	index = 10;
+	int [] expected6 = {};
+	assertArrayEquals(expected6,ArraysInt.removeNumber(src, index));
 }
 @Test
 void binarySearchTest()
