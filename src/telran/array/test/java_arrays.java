@@ -69,17 +69,51 @@ void insertNumberTest()
 @Test
 void removeNumberTest()
 {
-	//TODO
+	int [] src = {1, 2, 3, 4, 5, 6, 7};
+	int index = 3;
+	int [] expected1 = {1, 2, 3, 5, 6, 7};
+	assertArrayEquals(expected1,ArraysInt.removeNumber(src, index));
+	index = 5;
+	int [] expected4 = {1, 2, 3, 4, 5, 7};
+	assertArrayEquals(expected4,ArraysInt.removeNumber(src, index));
+	index = 0;
+	int [] expected2 = { 2, 3, 4, 5, 6, 7};
+	assertArrayEquals(expected2,ArraysInt.removeNumber(src, index));
+	index = src.length-1;
+	int [] expected3 = {1, 2, 3, 4, 5, 6};
+	assertArrayEquals(expected3,ArraysInt.removeNumber(src, index));
 }
 @Test
 void binarySearchTest()
 {
-	//TODO
+	int[] ar = {1, 2, 3, 4, 5, 6, 7, 8, 12, 15};
+	int index = Arrays.binarySearch(ar, 1);
+	assertEquals(0, index);
+	index = Arrays.binarySearch(ar, 4);
+	assertTrue(3 == index);
+	index = Arrays.binarySearch(ar, 15);
+	assertTrue(ar.length-1 == index);
+	index = Arrays.binarySearch(ar, 10);
+	assertTrue(0 > index);
+	index = Arrays.binarySearch(ar, 11);
+	assertEquals(-9, index);
 }
+
 @Test
 void insertNumberSortedTest()
 {
-	//TODO
+	int [] src = {1, 2, 3, 5, 6, 7};
+	int number = 8;
+	int [] expected1 = {1, 2, 3, 5, 6, 7, 8};
+	assertArrayEquals(expected1,ArraysInt.insertNumberSorted(src, number));
+	number = 5;
+	int [] expected2 = {1, 2, 3, 5, 5, 6, 7};
+	assertArrayEquals(expected2,ArraysInt.insertNumberSorted(src, number));
+	number = 0;
+	int [] expected3 = {0, 1, 2, 3, 5, 6, 7};
+	assertArrayEquals(expected3,ArraysInt.insertNumberSorted(src, number));
+	number = 4;
+	int [] expected4 = {1, 2, 3, 4, 5, 6, 7};
+	assertArrayEquals(expected4,ArraysInt.insertNumberSorted(src, number));
 }
-
 }
