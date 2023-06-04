@@ -3,11 +3,14 @@ package telran.array.test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
+import java.util.Random;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import telran.array.ArraysInt;
-public class java_arrays {
+
+public class ArraysTest {
 @Test
 void initalTest() {
 int[]ar1 = {1,2,3};
@@ -118,5 +121,89 @@ void insertNumberSortedTest()
 	number = 4;
 	int [] expected4 = {1, 2, 3, 4, 5, 6, 7};
 	assertArrayEquals(expected4,ArraysInt.insertNumberSorted(src, number));
+	number = -4;
+	int [] expected5 = {-4, 1, 2, 3, 5, 6, 7};
+	assertArrayEquals(expected5,ArraysInt.insertNumberSorted(src, number));
 }
+@Test
+
+void maxLongTest()
+{
+	assertEquals(Long.MAX_VALUE,getLongMax());
 }
+private long getLongMax()
+{
+	long res = 1;
+	while(res > 0)
+	{res*=2;}
+	return res-1;
+}
+@Test
+void maxIntTest()
+{
+	assertEquals(Integer.MAX_VALUE,getIntMax());
+}
+private int getIntMax()
+{
+	int res = 1;
+	while(res > 0)
+	{res++;}
+	return res-1;
+}
+
+@Test
+void standartBinarySearchTest()
+{
+	int[] ar = {1, 1, 1, 2 ,2, 2, 2, 2, 2, 5, 6,};
+	int number = 2;
+	assertEquals(3,ArraysInt.newBinarySearchNumberStandart(ar, number));
+	number = 3;
+	assertEquals(-10,ArraysInt.newBinarySearchNumberStandart(ar, number));
+	number =5;
+	assertEquals(9,ArraysInt.newBinarySearchNumberStandart(ar, number));
+}
+@Test
+void muchRepeatedTestBubble () 
+{
+	int N_ELEMENTS = 100000;
+	int array [] = new int[N_ELEMENTS];
+	for (int i = 0; i < array.length; i++)
+	{
+	    array[i] = ArraysInt.getRandomInt(0,100);
+	}
+	int index = ArraysInt.getRandomInt(0,99999);
+	ArraysInt.bubbleSort(array);
+	assertTrue(array[index] <= array[index+1]);
+	index = ArraysInt.getRandomInt(0,99999);
+	assertTrue(array[index+1] >= array[index]);
+}
+
+@Test
+void muchRepeatedTestQuickSort () 
+{
+int N_ELEMENTS = 100000;
+int array [] = new int[N_ELEMENTS];
+for (int i = 0; i < array.length; i++) 
+{
+array[i] = ArraysInt.getRandomInt(0,100);
+}
+int index = ArraysInt.getRandomInt(0,99999);
+ArraysInt.quickSort(array);
+assertTrue(array[index] <= array[index+1]);
+index = ArraysInt.getRandomInt(0,99999);
+assertTrue(array[index+1] >= array[index]);
+}
+
+@Test
+void ourBinarySearchTest()
+{
+	int[] ar = {1, 1, 1, 2 ,2, 2, 2, 2, 2, 5, 6,};
+	int number = 2;
+	assertEquals(3,ArraysInt.newBinarySearchNumberOur(ar, number));
+	number = 1;
+	assertEquals(0,ArraysInt.newBinarySearchNumberOur(ar, number));
+}
+
+
+}
+
