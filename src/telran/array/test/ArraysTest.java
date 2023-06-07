@@ -202,7 +202,14 @@ void ourBinarySearchTest()
 	assertEquals(3,ArraysInt.newBinarySearchNumberOur(ar, number));
 	number = 1;
 	assertEquals(0,ArraysInt.newBinarySearchNumberOur(ar, number));
+	number = 1;
+	assertEquals(0,ArraysInt.newBinarySearchNumberOur(ar, number));
+	number =4;
+	assertEquals(-10,ArraysInt.newBinarySearchNumberStandart(ar, number));
 }
+
+
+
 
 
 }

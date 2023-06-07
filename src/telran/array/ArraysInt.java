@@ -53,11 +53,11 @@ public static int [] insertNumberSorted (int[] ar, int number)
 		int left = 0;
 		int rigth = array.length-1;
 		int middle = rigth/2;
-		while(left <= rigth && array[middle] != number)
+		while(left <= rigth && array[left] != number)
 		{
-			if (number < array[middle])
+			if (number <= array[middle])
 			{
-				rigth = middle -1;
+				rigth = middle - 1;
 			}
 			else 
 			{
@@ -72,6 +72,7 @@ public static int [] insertNumberSorted (int[] ar, int number)
 	{
 		Arrays.sort(array);
 	}
+	
 	public static void bubbleSort(int [] array)
 	{
 		int length =  array.length;
@@ -121,7 +122,7 @@ public static int [] insertNumberSorted (int[] ar, int number)
 			int middle = rigth/2;
 			int index = 0;
 			boolean flagOfEqual= false;
-			while(rigth>=left )
+			while(rigth>=left)
 			{
 				if (array[middle]==number)
 				{
@@ -138,7 +139,9 @@ public static int [] insertNumberSorted (int[] ar, int number)
 				middle = (left+rigth)/2;
 			}
 			if (left>rigth)
+				
 				{index = -left-1;}
+			
 			return flagOfEqual? -index-1:index ;	
 		}
 }
