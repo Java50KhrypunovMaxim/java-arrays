@@ -1,4 +1,4 @@
-package telran.array.test;
+package telran.array;
 
 import java.util.Random;
 

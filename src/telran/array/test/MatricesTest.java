@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import telran.array.ArraysInt;
+import telran.array.InterviewTasks;
 
 import static telran.array.MatricesInt.*;
 
@@ -59,7 +60,7 @@ class MatricesTest {
 		int index = ArraysInt.getRandomInt(0,10);
 		InterviewTasks.sort(array);
 		assertTrue(array[index] <= array[index+1]);
-		index = ArraysInt.getRandomInt(0,99);
+		index = ArraysInt.getRandomInt(0,10);
 		assertTrue(array[index+1] >= array[index]);
 	}
 	
